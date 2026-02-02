@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SineEasingRouteImport } from './routes/sine-easing'
 import { Route as FirstAnimationRouteImport } from './routes/first-animation'
+import { Route as BackEasingRouteImport } from './routes/back-easing'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SineEasingRoute = SineEasingRouteImport.update({
@@ -23,6 +24,11 @@ const FirstAnimationRoute = FirstAnimationRouteImport.update({
   path: '/first-animation',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BackEasingRoute = BackEasingRouteImport.update({
+  id: '/back-easing',
+  path: '/back-easing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
   '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
   '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
   '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/first-animation' | '/sine-easing'
+  fullPaths: '/' | '/back-easing' | '/first-animation' | '/sine-easing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/first-animation' | '/sine-easing'
-  id: '__root__' | '/' | '/first-animation' | '/sine-easing'
+  to: '/' | '/back-easing' | '/first-animation' | '/sine-easing'
+  id: '__root__' | '/' | '/back-easing' | '/first-animation' | '/sine-easing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BackEasingRoute: typeof BackEasingRoute
   FirstAnimationRoute: typeof FirstAnimationRoute
   SineEasingRoute: typeof SineEasingRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FirstAnimationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/back-easing': {
+      id: '/back-easing'
+      path: '/back-easing'
+      fullPath: '/back-easing'
+      preLoaderRoute: typeof BackEasingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BackEasingRoute: BackEasingRoute,
   FirstAnimationRoute: FirstAnimationRoute,
   SineEasingRoute: SineEasingRoute,
 }

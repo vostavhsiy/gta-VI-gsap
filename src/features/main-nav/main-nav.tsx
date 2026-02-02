@@ -8,7 +8,8 @@ import { cn, isLinkActive } from "../../shared/utils";
 const links = [
   { to: "/", label: "Home" },
   { to: "/first-animation", label: "First Animation" },
-  { to: "/sine-easing", label: "Sine Easing" }
+  { to: "/sine-easing", label: "Sine Easing" },
+  { to: "/back-easing", label: "Back Easing" }
 ];
 
 export const MainNav = () => {
@@ -24,41 +25,42 @@ export const MainNav = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const closePopover = contextSafe(() => {
+    setTimeout(() => setIsOpen(false), 300);
     gsap.to(buttonRef.current, {
       rotate: 0,
-      duration: 0.4,
+      duration: 0.7,
       ease: "power2.inOut"
     });
     gsap
       .to(popoverRef.current, {
         opacity: 0,
         y: 0,
-        duration: 0.3
+        scale: 0.95,
+        duration: 0.7,
+        ease: "power3.out"
       })
       .then(() => {
         gsap.set(popoverRef.current, { visibility: "hidden" });
-        setIsOpen(false);
       });
   });
 
   useClickOutside(container, closePopover);
 
   const onClick = contextSafe(() => {
+    setTimeout(() => setIsOpen(true), 300);
     gsap.to(buttonRef.current, {
       rotate: 360,
-      duration: 0.4,
+      duration: 0.7,
       ease: "power2.inOut"
     });
-    gsap
-      .to(popoverRef.current, {
-        visibility: "visible",
-        opacity: 1,
-        y: 10,
-        duration: 0.3
-      })
-      .then(() => {
-        setIsOpen(true);
-      });
+    gsap.to(popoverRef.current, {
+      visibility: "visible",
+      opacity: 1,
+      scale: 1,
+      y: 10,
+      duration: 0.7,
+      ease: "power3.out"
+    });
   });
 
   return (
@@ -80,7 +82,7 @@ export const MainNav = () => {
       </button>
       <div
         ref={popoverRef}
-        className="overflow-hidden flex flex-col absolute top-full right-0 invisible opacity-0 w-60 bg-stone-800 border border-black rounded-sm text-black"
+        className="overflow-hidden scale-95 p-2 flex gap-3 flex-col absolute top-full right-0 invisible opacity-0 w-40 bg-black rounded-xl"
       >
         {links.map((link) => (
           <Link
@@ -91,9 +93,9 @@ export const MainNav = () => {
             key={link.to}
             to={link.to}
             className={cn(
-              "py-2 px-4 transition-all text-purple-200 hover:bg-stone-700",
+              "rounded-xl py-2 px-4 transition-all text-neutral-400 hover:text-white hover:bg-neutral-900",
               isLinkActive(location.pathname, link.to) &&
-                "bg-linear-to-br from-purple-500 to-pink-500/60 text-white"
+                "bg-linear-to-br from-purple-500/70 to-pink-500/40 text-white"
             )}
           >
             {link.label}
