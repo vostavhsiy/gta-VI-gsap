@@ -10,7 +10,8 @@ const links = [
   { to: "/first-animation", label: "First Animation" },
   { to: "/sine-easing", label: "Sine Easing" },
   { to: "/back-easing", label: "Back Easing" },
-  { to: "/scroll-trigger", label: "Scroll Trigger" }
+  { to: "/scroll-trigger", label: "Scroll Trigger" },
+  { to: "/pinning-elements", label: "Pinning Elements" }
 ];
 
 export const MainNav = () => {
@@ -83,7 +84,7 @@ export const MainNav = () => {
       </button>
       <div
         ref={popoverRef}
-        className="overflow-hidden scale-95 p-2 flex gap-3 flex-col absolute top-full right-0 invisible opacity-0 w-40 bg-black rounded-xl"
+        className="overflow-hidden scale-95 p-2 flex gap-3 flex-col absolute top-full right-0 invisible opacity-0 w-max bg-black rounded-xl"
       >
         {links.map((link) => (
           <Link

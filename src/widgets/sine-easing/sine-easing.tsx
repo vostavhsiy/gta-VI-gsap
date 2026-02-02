@@ -18,7 +18,7 @@ export const SineEasing = () => {
         if (!isScroll) {
           gsap.to(button.current, {
             y: -10,
-            duration: 2,
+            duration: 1,
             ease: "sine.inOut",
             repeat: -1,
             yoyo: true

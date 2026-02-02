@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SineEasingRouteImport } from './routes/sine-easing'
 import { Route as ScrollTriggerRouteImport } from './routes/scroll-trigger'
+import { Route as PinningElementsRouteImport } from './routes/pinning-elements'
 import { Route as FirstAnimationRouteImport } from './routes/first-animation'
 import { Route as BackEasingRouteImport } from './routes/back-easing'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,6 +24,11 @@ const SineEasingRoute = SineEasingRouteImport.update({
 const ScrollTriggerRoute = ScrollTriggerRouteImport.update({
   id: '/scroll-trigger',
   path: '/scroll-trigger',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PinningElementsRoute = PinningElementsRouteImport.update({
+  id: '/pinning-elements',
+  path: '/pinning-elements',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FirstAnimationRoute = FirstAnimationRouteImport.update({
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/pinning-elements': typeof PinningElementsRoute
   '/scroll-trigger': typeof ScrollTriggerRoute
   '/sine-easing': typeof SineEasingRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/pinning-elements': typeof PinningElementsRoute
   '/scroll-trigger': typeof ScrollTriggerRoute
   '/sine-easing': typeof SineEasingRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/pinning-elements': typeof PinningElementsRoute
   '/scroll-trigger': typeof ScrollTriggerRoute
   '/sine-easing': typeof SineEasingRoute
 }
@@ -69,6 +78,7 @@ export interface FileRouteTypes {
     | '/'
     | '/back-easing'
     | '/first-animation'
+    | '/pinning-elements'
     | '/scroll-trigger'
     | '/sine-easing'
   fileRoutesByTo: FileRoutesByTo
@@ -76,6 +86,7 @@ export interface FileRouteTypes {
     | '/'
     | '/back-easing'
     | '/first-animation'
+    | '/pinning-elements'
     | '/scroll-trigger'
     | '/sine-easing'
   id:
@@ -83,6 +94,7 @@ export interface FileRouteTypes {
     | '/'
     | '/back-easing'
     | '/first-animation'
+    | '/pinning-elements'
     | '/scroll-trigger'
     | '/sine-easing'
   fileRoutesById: FileRoutesById
@@ -91,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BackEasingRoute: typeof BackEasingRoute
   FirstAnimationRoute: typeof FirstAnimationRoute
+  PinningElementsRoute: typeof PinningElementsRoute
   ScrollTriggerRoute: typeof ScrollTriggerRoute
   SineEasingRoute: typeof SineEasingRoute
 }
@@ -109,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/scroll-trigger'
       fullPath: '/scroll-trigger'
       preLoaderRoute: typeof ScrollTriggerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pinning-elements': {
+      id: '/pinning-elements'
+      path: '/pinning-elements'
+      fullPath: '/pinning-elements'
+      preLoaderRoute: typeof PinningElementsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/first-animation': {
@@ -139,6 +159,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BackEasingRoute: BackEasingRoute,
   FirstAnimationRoute: FirstAnimationRoute,
+  PinningElementsRoute: PinningElementsRoute,
   ScrollTriggerRoute: ScrollTriggerRoute,
   SineEasingRoute: SineEasingRoute,
 }
