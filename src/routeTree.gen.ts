@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SineEasingRouteImport } from './routes/sine-easing'
+import { Route as ScrollTriggerRouteImport } from './routes/scroll-trigger'
 import { Route as FirstAnimationRouteImport } from './routes/first-animation'
 import { Route as BackEasingRouteImport } from './routes/back-easing'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const SineEasingRoute = SineEasingRouteImport.update({
   id: '/sine-easing',
   path: '/sine-easing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScrollTriggerRoute = ScrollTriggerRouteImport.update({
+  id: '/scroll-trigger',
+  path: '/scroll-trigger',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FirstAnimationRoute = FirstAnimationRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/scroll-trigger': typeof ScrollTriggerRoute
   '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/scroll-trigger': typeof ScrollTriggerRoute
   '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/back-easing': typeof BackEasingRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/scroll-trigger': typeof ScrollTriggerRoute
   '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/back-easing' | '/first-animation' | '/sine-easing'
+  fullPaths:
+    | '/'
+    | '/back-easing'
+    | '/first-animation'
+    | '/scroll-trigger'
+    | '/sine-easing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/back-easing' | '/first-animation' | '/sine-easing'
-  id: '__root__' | '/' | '/back-easing' | '/first-animation' | '/sine-easing'
+  to:
+    | '/'
+    | '/back-easing'
+    | '/first-animation'
+    | '/scroll-trigger'
+    | '/sine-easing'
+  id:
+    | '__root__'
+    | '/'
+    | '/back-easing'
+    | '/first-animation'
+    | '/scroll-trigger'
+    | '/sine-easing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BackEasingRoute: typeof BackEasingRoute
   FirstAnimationRoute: typeof FirstAnimationRoute
+  ScrollTriggerRoute: typeof ScrollTriggerRoute
   SineEasingRoute: typeof SineEasingRoute
 }
 
@@ -76,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/sine-easing'
       fullPath: '/sine-easing'
       preLoaderRoute: typeof SineEasingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scroll-trigger': {
+      id: '/scroll-trigger'
+      path: '/scroll-trigger'
+      fullPath: '/scroll-trigger'
+      preLoaderRoute: typeof ScrollTriggerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/first-animation': {
@@ -106,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BackEasingRoute: BackEasingRoute,
   FirstAnimationRoute: FirstAnimationRoute,
+  ScrollTriggerRoute: ScrollTriggerRoute,
   SineEasingRoute: SineEasingRoute,
 }
 export const routeTree = rootRouteImport

@@ -8,6 +8,7 @@ import "./index.css";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const router = createRouter({ routeTree });
 
@@ -17,7 +18,7 @@ declare module "@tanstack/react-router" {
   }
 }
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {
@@ -25,6 +26,6 @@ if (!rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <RouterProvider router={router} />
-    </StrictMode>,
+    </StrictMode>
   );
 }

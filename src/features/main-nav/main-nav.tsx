@@ -9,7 +9,8 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/first-animation", label: "First Animation" },
   { to: "/sine-easing", label: "Sine Easing" },
-  { to: "/back-easing", label: "Back Easing" }
+  { to: "/back-easing", label: "Back Easing" },
+  { to: "/scroll-trigger", label: "Scroll Trigger" }
 ];
 
 export const MainNav = () => {
@@ -78,7 +79,7 @@ export const MainNav = () => {
         }}
         className="flex items-center justify-center size-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 text-white shadow-[0px_0px_85px_10px_rgba(0,0,0,0.1)] shadow-pink-500 hover:from-purple-600 hover:to-pink-600"
       >
-        {isOpen ? "X" : "☰"}
+        {isOpen ? "✕" : "☰"}
       </button>
       <div
         ref={popoverRef}
