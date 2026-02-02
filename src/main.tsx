@@ -4,6 +4,11 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 
 import { routeTree } from "./routeTree.gen";
 
+import "./index.css";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const router = createRouter({ routeTree });
 
 declare module "@tanstack/react-router" {
@@ -11,6 +16,8 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
 }
+
+gsap.registerPlugin(useGSAP);
 
 const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {

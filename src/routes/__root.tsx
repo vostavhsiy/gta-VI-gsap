@@ -1,15 +1,18 @@
-import * as React from 'react'
-import { Outlet, createRootRoute } from '@tanstack/react-router'
+import * as React from "react";
+import { Outlet, createRootRoute } from "@tanstack/react-router";
+import { MainNav } from "../features/main-nav/main-nav";
 
 export const Route = createRootRoute({
   component: RootComponent,
-})
+});
 
 function RootComponent() {
   return (
     <React.Fragment>
-      <div>Hello "__root"!</div>
-      <Outlet />
+      <MainNav />
+      <main className="p-5 flex flex-col h-screen">
+        <Outlet />
+      </main>
     </React.Fragment>
-  )
+  );
 }
