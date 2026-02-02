@@ -8,6 +8,7 @@ import { cn, isLinkActive } from "../../shared/utils";
 const links = [
   { to: "/", label: "Home" },
   { to: "/first-animation", label: "First Animation" },
+  { to: "/sine-easing", label: "Sine Easing" }
 ];
 
 export const MainNav = () => {
@@ -26,13 +27,13 @@ export const MainNav = () => {
     gsap.to(buttonRef.current, {
       rotate: 0,
       duration: 0.4,
-      ease: "power2.inOut",
+      ease: "power2.inOut"
     });
     gsap
       .to(popoverRef.current, {
         opacity: 0,
         y: 0,
-        duration: 0.3,
+        duration: 0.3
       })
       .then(() => {
         gsap.set(popoverRef.current, { visibility: "hidden" });
@@ -46,14 +47,14 @@ export const MainNav = () => {
     gsap.to(buttonRef.current, {
       rotate: 360,
       duration: 0.4,
-      ease: "power2.inOut",
+      ease: "power2.inOut"
     });
     gsap
       .to(popoverRef.current, {
         visibility: "visible",
         opacity: 1,
         y: 10,
-        duration: 0.3,
+        duration: 0.3
       })
       .then(() => {
         setIsOpen(true);
@@ -73,7 +74,7 @@ export const MainNav = () => {
           event.stopPropagation();
           closePopover();
         }}
-        className="flex items-center justify-center size-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 text-white shadow-lg hover:from-purple-600 hover:to-pink-600"
+        className="flex items-center justify-center size-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 text-white shadow-[0px_0px_85px_10px_rgba(0,0,0,0.1)] shadow-pink-500 hover:from-purple-600 hover:to-pink-600"
       >
         {isOpen ? "X" : "☰"}
       </button>
@@ -92,7 +93,7 @@ export const MainNav = () => {
             className={cn(
               "py-2 px-4 transition-all text-purple-200 hover:bg-stone-700",
               isLinkActive(location.pathname, link.to) &&
-                "bg-linear-to-br from-purple-500 to-pink-500/60 text-white",
+                "bg-linear-to-br from-purple-500 to-pink-500/60 text-white"
             )}
           >
             {link.label}

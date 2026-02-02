@@ -25,7 +25,7 @@ export const FirstAnimation = () => {
   return (
     <div
       ref={cube}
-      className="size-50 mt-10 opacity-0 scale-80 rounded-xl bg-linear-to-r from-purple-500 to-pink-500"
+      className="size-50 opacity-0 scale-80 rounded-xl bg-linear-to-r from-purple-500 to-pink-500"
     />
   );
 };

@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SineEasingRouteImport } from './routes/sine-easing'
 import { Route as FirstAnimationRouteImport } from './routes/first-animation'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SineEasingRoute = SineEasingRouteImport.update({
+  id: '/sine-easing',
+  path: '/sine-easing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FirstAnimationRoute = FirstAnimationRouteImport.update({
   id: '/first-animation',
   path: '/first-animation',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/first-animation': typeof FirstAnimationRoute
+  '/sine-easing': typeof SineEasingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/first-animation'
+  fullPaths: '/' | '/first-animation' | '/sine-easing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/first-animation'
-  id: '__root__' | '/' | '/first-animation'
+  to: '/' | '/first-animation' | '/sine-easing'
+  id: '__root__' | '/' | '/first-animation' | '/sine-easing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FirstAnimationRoute: typeof FirstAnimationRoute
+  SineEasingRoute: typeof SineEasingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sine-easing': {
+      id: '/sine-easing'
+      path: '/sine-easing'
+      fullPath: '/sine-easing'
+      preLoaderRoute: typeof SineEasingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/first-animation': {
       id: '/first-animation'
       path: '/first-animation'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FirstAnimationRoute: FirstAnimationRoute,
+  SineEasingRoute: SineEasingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
