@@ -22,11 +22,13 @@ export const FirstVideo = () => {
       }
     });
 
-    tl.to(".hero-section", { opacity: 0, ease: "power1.inOut" });
-    tl.to(".first-vd-wrapper", {
+    tl.to(".vice-city-content", {
+      opacity: 0,
+      ease: "power1.inOut"
+    }).to(".first-vd-wrapper", {
       opacity: 1,
       visibility: "visible",
-      duration: 2,
+      duration: 3,
       ease: "power1.inOut"
     });
 

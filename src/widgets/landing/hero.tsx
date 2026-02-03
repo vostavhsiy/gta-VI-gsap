@@ -74,7 +74,7 @@ export const Hero = () => {
       )
       .to(".mask-wrapper", { opacity: 0, ease: "sine.inOut(1.7)" }, "<40%")
       .to(
-        ".entrance-message",
+        ".hero-section .entrance-message",
         {
           maskImage:
             "radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)",
@@ -136,7 +136,7 @@ export const Hero = () => {
         <div className="entrance-message invisible absolute w-full h-full pt-[0%] top-0 left-0 flex flex-col items-center justify-center gap-5">
           <img
             src="/images/logo.webp"
-            className="max-[769px]:w-[50dvw] w-[13dvw] absolute top-0 left-1/2 -translate-x-1/2 translate-y-[90%] sm:translate-y-[45%] lg:translate-y-[90%]"
+            className="max-[769px]:w-[50dvw] w-[13dvw] z-5 absolute top-0 left-1/2 -translate-x-1/2 translate-y-[90%] sm:translate-y-[45%] lg:translate-y-[90%]"
             alt="logo"
           />
           <div className="entrance-info scale-125 mt-16 md:mt-30 flex flex-col items-center justify-center gap-5">
