@@ -112,7 +112,7 @@ export const Hero = () => {
           alt="Menu"
         />
       </nav>
-      <section className="hero-section relative overflow-hidden w-dvw h-dvh">
+      <section className="hero-section relative overflow-hidden w-screen h-screen">
         <div className="size-full bg-white mask-wrapper">
           <img
             src="/images/hero-bg.webp"
