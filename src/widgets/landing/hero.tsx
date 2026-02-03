@@ -80,11 +80,7 @@ export const Hero = () => {
             "radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)",
           visibility: "visible",
           duration: 0.6,
-          ease: "power1.inOut",
-          onComplete: () => {
-            console.log("hide mask-wrapper");
-            gsap.to(".mask-wrapper", { opacity: 0 });
-          }
+          ease: "power1.inOut"
         },
         "<"
       )
