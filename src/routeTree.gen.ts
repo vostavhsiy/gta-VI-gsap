@@ -9,68 +9,74 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SineEasingRouteImport } from './routes/sine-easing'
-import { Route as ScrollTriggerRouteImport } from './routes/scroll-trigger'
-import { Route as PinningElementsRouteImport } from './routes/pinning-elements'
-import { Route as FirstAnimationRouteImport } from './routes/first-animation'
-import { Route as BackEasingRouteImport } from './routes/back-easing'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExamplesRouteRouteImport } from './routes/_examples/route'
+import { Route as ExamplesIndexRouteImport } from './routes/_examples/index'
+import { Route as ExamplesSineEasingRouteImport } from './routes/_examples/sine-easing'
+import { Route as ExamplesScrollTriggerRouteImport } from './routes/_examples/scroll-trigger'
+import { Route as ExamplesPinningElementsRouteImport } from './routes/_examples/pinning-elements'
+import { Route as ExamplesFirstAnimationRouteImport } from './routes/_examples/first-animation'
+import { Route as ExamplesBackEasingRouteImport } from './routes/_examples/back-easing'
 
-const SineEasingRoute = SineEasingRouteImport.update({
-  id: '/sine-easing',
-  path: '/sine-easing',
+const ExamplesRouteRoute = ExamplesRouteRouteImport.update({
+  id: '/_examples',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ScrollTriggerRoute = ScrollTriggerRouteImport.update({
-  id: '/scroll-trigger',
-  path: '/scroll-trigger',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PinningElementsRoute = PinningElementsRouteImport.update({
-  id: '/pinning-elements',
-  path: '/pinning-elements',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FirstAnimationRoute = FirstAnimationRouteImport.update({
-  id: '/first-animation',
-  path: '/first-animation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BackEasingRoute = BackEasingRouteImport.update({
-  id: '/back-easing',
-  path: '/back-easing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
+const ExamplesIndexRoute = ExamplesIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => ExamplesRouteRoute,
+} as any)
+const ExamplesSineEasingRoute = ExamplesSineEasingRouteImport.update({
+  id: '/sine-easing',
+  path: '/sine-easing',
+  getParentRoute: () => ExamplesRouteRoute,
+} as any)
+const ExamplesScrollTriggerRoute = ExamplesScrollTriggerRouteImport.update({
+  id: '/scroll-trigger',
+  path: '/scroll-trigger',
+  getParentRoute: () => ExamplesRouteRoute,
+} as any)
+const ExamplesPinningElementsRoute = ExamplesPinningElementsRouteImport.update({
+  id: '/pinning-elements',
+  path: '/pinning-elements',
+  getParentRoute: () => ExamplesRouteRoute,
+} as any)
+const ExamplesFirstAnimationRoute = ExamplesFirstAnimationRouteImport.update({
+  id: '/first-animation',
+  path: '/first-animation',
+  getParentRoute: () => ExamplesRouteRoute,
+} as any)
+const ExamplesBackEasingRoute = ExamplesBackEasingRouteImport.update({
+  id: '/back-easing',
+  path: '/back-easing',
+  getParentRoute: () => ExamplesRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/back-easing': typeof BackEasingRoute
-  '/first-animation': typeof FirstAnimationRoute
-  '/pinning-elements': typeof PinningElementsRoute
-  '/scroll-trigger': typeof ScrollTriggerRoute
-  '/sine-easing': typeof SineEasingRoute
+  '/': typeof ExamplesIndexRoute
+  '/back-easing': typeof ExamplesBackEasingRoute
+  '/first-animation': typeof ExamplesFirstAnimationRoute
+  '/pinning-elements': typeof ExamplesPinningElementsRoute
+  '/scroll-trigger': typeof ExamplesScrollTriggerRoute
+  '/sine-easing': typeof ExamplesSineEasingRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/back-easing': typeof BackEasingRoute
-  '/first-animation': typeof FirstAnimationRoute
-  '/pinning-elements': typeof PinningElementsRoute
-  '/scroll-trigger': typeof ScrollTriggerRoute
-  '/sine-easing': typeof SineEasingRoute
+  '/back-easing': typeof ExamplesBackEasingRoute
+  '/first-animation': typeof ExamplesFirstAnimationRoute
+  '/pinning-elements': typeof ExamplesPinningElementsRoute
+  '/scroll-trigger': typeof ExamplesScrollTriggerRoute
+  '/sine-easing': typeof ExamplesSineEasingRoute
+  '/': typeof ExamplesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/back-easing': typeof BackEasingRoute
-  '/first-animation': typeof FirstAnimationRoute
-  '/pinning-elements': typeof PinningElementsRoute
-  '/scroll-trigger': typeof ScrollTriggerRoute
-  '/sine-easing': typeof SineEasingRoute
+  '/_examples': typeof ExamplesRouteRouteWithChildren
+  '/_examples/back-easing': typeof ExamplesBackEasingRoute
+  '/_examples/first-animation': typeof ExamplesFirstAnimationRoute
+  '/_examples/pinning-elements': typeof ExamplesPinningElementsRoute
+  '/_examples/scroll-trigger': typeof ExamplesScrollTriggerRoute
+  '/_examples/sine-easing': typeof ExamplesSineEasingRoute
+  '/_examples/': typeof ExamplesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -83,85 +89,105 @@ export interface FileRouteTypes {
     | '/sine-easing'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/back-easing'
     | '/first-animation'
     | '/pinning-elements'
     | '/scroll-trigger'
     | '/sine-easing'
+    | '/'
   id:
     | '__root__'
-    | '/'
-    | '/back-easing'
-    | '/first-animation'
-    | '/pinning-elements'
-    | '/scroll-trigger'
-    | '/sine-easing'
+    | '/_examples'
+    | '/_examples/back-easing'
+    | '/_examples/first-animation'
+    | '/_examples/pinning-elements'
+    | '/_examples/scroll-trigger'
+    | '/_examples/sine-easing'
+    | '/_examples/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  BackEasingRoute: typeof BackEasingRoute
-  FirstAnimationRoute: typeof FirstAnimationRoute
-  PinningElementsRoute: typeof PinningElementsRoute
-  ScrollTriggerRoute: typeof ScrollTriggerRoute
-  SineEasingRoute: typeof SineEasingRoute
+  ExamplesRouteRoute: typeof ExamplesRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sine-easing': {
-      id: '/sine-easing'
-      path: '/sine-easing'
-      fullPath: '/sine-easing'
-      preLoaderRoute: typeof SineEasingRouteImport
+    '/_examples': {
+      id: '/_examples'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ExamplesRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/scroll-trigger': {
-      id: '/scroll-trigger'
-      path: '/scroll-trigger'
-      fullPath: '/scroll-trigger'
-      preLoaderRoute: typeof ScrollTriggerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pinning-elements': {
-      id: '/pinning-elements'
-      path: '/pinning-elements'
-      fullPath: '/pinning-elements'
-      preLoaderRoute: typeof PinningElementsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/first-animation': {
-      id: '/first-animation'
-      path: '/first-animation'
-      fullPath: '/first-animation'
-      preLoaderRoute: typeof FirstAnimationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/back-easing': {
-      id: '/back-easing'
-      path: '/back-easing'
-      fullPath: '/back-easing'
-      preLoaderRoute: typeof BackEasingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
+    '/_examples/': {
+      id: '/_examples/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof ExamplesIndexRouteImport
+      parentRoute: typeof ExamplesRouteRoute
+    }
+    '/_examples/sine-easing': {
+      id: '/_examples/sine-easing'
+      path: '/sine-easing'
+      fullPath: '/sine-easing'
+      preLoaderRoute: typeof ExamplesSineEasingRouteImport
+      parentRoute: typeof ExamplesRouteRoute
+    }
+    '/_examples/scroll-trigger': {
+      id: '/_examples/scroll-trigger'
+      path: '/scroll-trigger'
+      fullPath: '/scroll-trigger'
+      preLoaderRoute: typeof ExamplesScrollTriggerRouteImport
+      parentRoute: typeof ExamplesRouteRoute
+    }
+    '/_examples/pinning-elements': {
+      id: '/_examples/pinning-elements'
+      path: '/pinning-elements'
+      fullPath: '/pinning-elements'
+      preLoaderRoute: typeof ExamplesPinningElementsRouteImport
+      parentRoute: typeof ExamplesRouteRoute
+    }
+    '/_examples/first-animation': {
+      id: '/_examples/first-animation'
+      path: '/first-animation'
+      fullPath: '/first-animation'
+      preLoaderRoute: typeof ExamplesFirstAnimationRouteImport
+      parentRoute: typeof ExamplesRouteRoute
+    }
+    '/_examples/back-easing': {
+      id: '/_examples/back-easing'
+      path: '/back-easing'
+      fullPath: '/back-easing'
+      preLoaderRoute: typeof ExamplesBackEasingRouteImport
+      parentRoute: typeof ExamplesRouteRoute
     }
   }
 }
 
+interface ExamplesRouteRouteChildren {
+  ExamplesBackEasingRoute: typeof ExamplesBackEasingRoute
+  ExamplesFirstAnimationRoute: typeof ExamplesFirstAnimationRoute
+  ExamplesPinningElementsRoute: typeof ExamplesPinningElementsRoute
+  ExamplesScrollTriggerRoute: typeof ExamplesScrollTriggerRoute
+  ExamplesSineEasingRoute: typeof ExamplesSineEasingRoute
+  ExamplesIndexRoute: typeof ExamplesIndexRoute
+}
+
+const ExamplesRouteRouteChildren: ExamplesRouteRouteChildren = {
+  ExamplesBackEasingRoute: ExamplesBackEasingRoute,
+  ExamplesFirstAnimationRoute: ExamplesFirstAnimationRoute,
+  ExamplesPinningElementsRoute: ExamplesPinningElementsRoute,
+  ExamplesScrollTriggerRoute: ExamplesScrollTriggerRoute,
+  ExamplesSineEasingRoute: ExamplesSineEasingRoute,
+  ExamplesIndexRoute: ExamplesIndexRoute,
+}
+
+const ExamplesRouteRouteWithChildren = ExamplesRouteRoute._addFileChildren(
+  ExamplesRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  BackEasingRoute: BackEasingRoute,
-  FirstAnimationRoute: FirstAnimationRoute,
-  PinningElementsRoute: PinningElementsRoute,
-  ScrollTriggerRoute: ScrollTriggerRoute,
-  SineEasingRoute: SineEasingRoute,
+  ExamplesRouteRoute: ExamplesRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

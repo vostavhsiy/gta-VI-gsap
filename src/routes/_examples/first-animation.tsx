@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FirstAnimation } from "../widgets/first-animation/first-animation";
-import { AnimationContainer } from "../features/animation-container/animation-container";
-import { ExampleContainer } from "../features/example-container/example-container";
+import { FirstAnimation } from "../../widgets/first-animation/first-animation";
+import { AnimationContainer } from "../../features/animation-container/animation-container";
+import { ExampleContainer } from "../../features/example-container/example-container";
 
-export const Route = createFileRoute("/first-animation")({
+export const Route = createFileRoute("/_examples/first-animation")({
   component: FirstAnimationPage
 });
 

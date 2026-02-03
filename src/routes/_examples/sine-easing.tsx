@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ExampleContainer } from "../features/example-container/example-container";
-import { AnimationContainer } from "../features/animation-container/animation-container";
-import { SineEasing } from "../widgets/sine-easing/sine-easing";
+import { ExampleContainer } from "../../features/example-container/example-container";
+import { AnimationContainer } from "../../features/animation-container/animation-container";
+import { SineEasing } from "../../widgets/sine-easing/sine-easing";
 
-export const Route = createFileRoute("/sine-easing")({
+export const Route = createFileRoute("/_examples/sine-easing")({
   component: SineEasingPage
 });
 

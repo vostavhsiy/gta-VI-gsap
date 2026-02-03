@@ -10,7 +10,7 @@ function RootComponent() {
   return (
     <React.Fragment>
       <MainNav />
-      <main className="p-5 flex flex-col min-h-screen">
+      <main>
         <Outlet />
       </main>
     </React.Fragment>
