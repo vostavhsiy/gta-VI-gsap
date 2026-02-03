@@ -10,7 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ExamplesRouteRouteImport } from './routes/_examples/route'
-import { Route as ExamplesIndexRouteImport } from './routes/_examples/index'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as ExamplesSineEasingRouteImport } from './routes/_examples/sine-easing'
 import { Route as ExamplesScrollTriggerRouteImport } from './routes/_examples/scroll-trigger'
 import { Route as ExamplesPinningElementsRouteImport } from './routes/_examples/pinning-elements'
@@ -21,10 +21,10 @@ const ExamplesRouteRoute = ExamplesRouteRouteImport.update({
   id: '/_examples',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ExamplesIndexRoute = ExamplesIndexRouteImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => ExamplesRouteRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ExamplesSineEasingRoute = ExamplesSineEasingRouteImport.update({
   id: '/sine-easing',
@@ -53,7 +53,7 @@ const ExamplesBackEasingRoute = ExamplesBackEasingRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof ExamplesIndexRoute
+  '/': typeof IndexRoute
   '/back-easing': typeof ExamplesBackEasingRoute
   '/first-animation': typeof ExamplesFirstAnimationRoute
   '/pinning-elements': typeof ExamplesPinningElementsRoute
@@ -61,22 +61,22 @@ export interface FileRoutesByFullPath {
   '/sine-easing': typeof ExamplesSineEasingRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/back-easing': typeof ExamplesBackEasingRoute
   '/first-animation': typeof ExamplesFirstAnimationRoute
   '/pinning-elements': typeof ExamplesPinningElementsRoute
   '/scroll-trigger': typeof ExamplesScrollTriggerRoute
   '/sine-easing': typeof ExamplesSineEasingRoute
-  '/': typeof ExamplesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/_examples': typeof ExamplesRouteRouteWithChildren
   '/_examples/back-easing': typeof ExamplesBackEasingRoute
   '/_examples/first-animation': typeof ExamplesFirstAnimationRoute
   '/_examples/pinning-elements': typeof ExamplesPinningElementsRoute
   '/_examples/scroll-trigger': typeof ExamplesScrollTriggerRoute
   '/_examples/sine-easing': typeof ExamplesSineEasingRoute
-  '/_examples/': typeof ExamplesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -89,24 +89,25 @@ export interface FileRouteTypes {
     | '/sine-easing'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
     | '/back-easing'
     | '/first-animation'
     | '/pinning-elements'
     | '/scroll-trigger'
     | '/sine-easing'
-    | '/'
   id:
     | '__root__'
+    | '/'
     | '/_examples'
     | '/_examples/back-easing'
     | '/_examples/first-animation'
     | '/_examples/pinning-elements'
     | '/_examples/scroll-trigger'
     | '/_examples/sine-easing'
-    | '/_examples/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   ExamplesRouteRoute: typeof ExamplesRouteRouteWithChildren
 }
 
@@ -119,12 +120,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExamplesRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_examples/': {
-      id: '/_examples/'
+    '/': {
+      id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof ExamplesIndexRouteImport
-      parentRoute: typeof ExamplesRouteRoute
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_examples/sine-easing': {
       id: '/_examples/sine-easing'
@@ -170,7 +171,6 @@ interface ExamplesRouteRouteChildren {
   ExamplesPinningElementsRoute: typeof ExamplesPinningElementsRoute
   ExamplesScrollTriggerRoute: typeof ExamplesScrollTriggerRoute
   ExamplesSineEasingRoute: typeof ExamplesSineEasingRoute
-  ExamplesIndexRoute: typeof ExamplesIndexRoute
 }
 
 const ExamplesRouteRouteChildren: ExamplesRouteRouteChildren = {
@@ -179,7 +179,6 @@ const ExamplesRouteRouteChildren: ExamplesRouteRouteChildren = {
   ExamplesPinningElementsRoute: ExamplesPinningElementsRoute,
   ExamplesScrollTriggerRoute: ExamplesScrollTriggerRoute,
   ExamplesSineEasingRoute: ExamplesSineEasingRoute,
-  ExamplesIndexRoute: ExamplesIndexRoute,
 }
 
 const ExamplesRouteRouteWithChildren = ExamplesRouteRoute._addFileChildren(
@@ -187,6 +186,7 @@ const ExamplesRouteRouteWithChildren = ExamplesRouteRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   ExamplesRouteRoute: ExamplesRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport

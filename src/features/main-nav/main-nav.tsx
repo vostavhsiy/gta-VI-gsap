@@ -6,7 +6,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { cn, isLinkActive } from "../../shared/utils";
 
 const links = [
-  { to: "/", label: "Home" },
+  { to: "/", label: "GTA VI" },
   { to: "/first-animation", label: "First Animation" },
   { to: "/sine-easing", label: "Sine Easing" },
   { to: "/back-easing", label: "Back Easing" },
@@ -59,7 +59,7 @@ export const MainNav = () => {
       visibility: "visible",
       opacity: 1,
       scale: 1,
-      y: 10,
+      y: -10,
       duration: 0.7,
       ease: "power3.out"
     });
@@ -67,7 +67,7 @@ export const MainNav = () => {
 
   return (
     <div
-      className="group fixed top-4 right-4"
+      className="group fixed z-200 bottom-4 right-4"
       ref={container}
       onClick={onClick}
     >
@@ -84,7 +84,7 @@ export const MainNav = () => {
       </button>
       <div
         ref={popoverRef}
-        className="overflow-hidden scale-95 p-2 flex gap-3 flex-col absolute top-full right-0 invisible opacity-0 w-max bg-black rounded-xl"
+        className="overflow-hidden scale-95 p-2 flex gap-3 flex-col absolute bottom-full right-0 invisible opacity-0 w-max bg-black rounded-xl"
       >
         {links.map((link) => (
           <Link

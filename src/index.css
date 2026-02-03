@@ -1,20 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "Long";
+  src: url("/fonts/long.woff");
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #1c171e;
+@font-face {
+  font-family: "Round";
+  src: url("/fonts/round.woff");
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Round Bold";
+  font-weight: bold;
+  src: url("/fonts/round-bold.woff");
+}
+
+@theme {
+  --font-sans: "Round", sans-serif;
+  --font-long: "Long", sans-serif;
+  --font-round-bold: "Round Bold", sans-serif;
+  --color-yellow: #fff9cb;
+  --color-pink: #ffb0c4;
+  --breakpoint-sm: 40rem;
+  --breakpoint-xs: 20rem;
+  --breakpoint-3xl: 120rem;
 }
 
 button {
   cursor: pointer;
+}
+
+body {
+  width: 100dvw;
+  overflow-x: hidden;
+  font-family: "Round", sans-serif;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+main {
+  background: linear-gradient(
+    223.17deg,
+    rgb(28, 24, 41) 0%,
+    rgb(27, 24, 40) 8.61%,
+    rgb(25, 23, 36) 17.21%,
+    rgb(22, 21, 32) 25.82%,
+    rgb(20, 19, 28) 34.42%,
+    rgb(18, 18, 24) 43.03%,
+    rgb(17, 17, 23) 51.63%
+  );
 }
 
 *::-webkit-scrollbar {
@@ -29,4 +64,15 @@ button {
 }
 *::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+.mask-wrapper {
+  mask-image: url("/images/big-hero-text.svg");
+  mask-repeat: no-repeat;
+}
+
+.entrance-message {
+  mask-image: radial-gradient(circle at 50% 100vh, black 0%, transparent 0%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
 }
