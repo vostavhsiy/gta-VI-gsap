@@ -25,7 +25,6 @@ export const FinalVideo = () => {
         start: "top 80%",
         end: "90% top",
         scrub: true,
-        markers: true
       }
     });
 
