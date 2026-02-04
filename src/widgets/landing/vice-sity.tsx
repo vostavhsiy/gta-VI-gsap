@@ -12,24 +12,24 @@ export const ViceSity = () => {
       scrollTrigger: {
         trigger: ".vice-city",
         start: "top top",
-        end: "+=200% top",
+        end: "+=400% top",
         scrub: 2,
         pin: true
       }
     });
 
-    tl.to(".hero-section", { opacity: 0, ease: "power1.inOut" })
+    tl.to(".hero-section", { opacity: 0, duration: 0.1, ease: "power1.inOut" })
       .to(".vice-city", {
         opacity: 1,
         scale: 1,
-        duration: 3,
+        duration: 2,
         ease: "power1.inOut"
       })
       .to(
         ".vice-city-content",
         {
           scale: 1,
-          duration: 3,
+          duration: 2,
           ease: "power1.inOut"
         },
         "<"

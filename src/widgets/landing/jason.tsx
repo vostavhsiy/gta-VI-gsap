@@ -9,7 +9,7 @@ export const Jason = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".jason",
-          start: "top 90%",
+          start: "top 60%",
           end: "10% center",
           scrub: 2
         }

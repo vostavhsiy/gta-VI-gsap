@@ -24,6 +24,7 @@ export const FirstVideo = () => {
 
     tl.to(".vice-city-content", {
       opacity: 0,
+      duration: 0.2,
       ease: "power1.inOut"
     }).to(".first-vd-wrapper", {
       opacity: 1,
