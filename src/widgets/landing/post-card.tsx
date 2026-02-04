@@ -34,7 +34,7 @@ export const PostCard = () => {
   });
 
   return (
-    <div className="post-card pt-[40vh] -mt-[70vh] lg:pt-[70vh] pb-[30vh]">
+    <section className="post-card pt-[40vh] -mt-[70vh] lg:pt-[70vh] pb-[30vh]">
       <div className="group relative post-card max-sm:max-w-4/5 max-w-3/5 mx-auto shadow-lg hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-500">
         <video
           ref={videoRef}
@@ -53,6 +53,6 @@ export const PostCard = () => {
           Explore Leonida Keys
         </button>
       </div>
-    </div>
+    </section>
   );
 };

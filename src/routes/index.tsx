@@ -5,7 +5,8 @@ import { Jason } from "../widgets/landing/jason";
 import { ViceSity } from "../widgets/landing/vice-sity";
 import { SecondVideo } from "../widgets/landing/second-video";
 import { Lucia } from "../widgets/landing/lucia";
-import { PostCard } from '../widgets/landing/post-card'
+import { PostCard } from "../widgets/landing/post-card";
+import { FinalVideo } from "../widgets/landing/final-video";
 
 export const Route = createFileRoute("/")({
   component: GtaLandingPage
@@ -21,6 +22,7 @@ function GtaLandingPage() {
       <SecondVideo />
       <Lucia />
       <PostCard />
+      <FinalVideo />
     </div>
   );
 }
