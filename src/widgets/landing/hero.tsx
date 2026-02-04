@@ -13,7 +13,7 @@ export const Hero = () => {
         start: "top top",
         end: "+=200%",
         scrub: 2,
-        pin: true
+        pin: true,
       }
     });
 

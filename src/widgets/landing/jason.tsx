@@ -11,7 +11,7 @@ export const Jason = () => {
           trigger: ".jason",
           start: "top 60%",
           end: "10% center",
-          scrub: 2
+          scrub: 2,
         }
       })
       .to(".first-vd", {
@@ -50,7 +50,7 @@ export const Jason = () => {
               It might be time to try something new.
             </p>
           </div>
-          <div className="group bg-yellow h-[50vh] min-[769px]:h-[90vh] w-auto mt-10 -translate-x-5">
+          <div className="relative z-10 group bg-yellow h-[50vh] min-[769px]:h-[90vh] w-auto mt-10 -translate-x-5">
             <img
               className="size-full object-cover group-hover:scale-98 transition-transform duration-500"
               src="/images/jason-2.webp"

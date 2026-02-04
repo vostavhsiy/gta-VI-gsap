@@ -18,7 +18,7 @@ export const FirstVideo = () => {
         start: "top top",
         end: "+=200% top",
         scrub: 2,
-        pin: true
+        pin: true,
       }
     });
 
@@ -34,7 +34,6 @@ export const FirstVideo = () => {
     });
 
     if (videoRef.current)
-      //@ts-ignore
       videoRef.current.onloadedmetadata = () => {
         tl.to(
           videoRef.current,

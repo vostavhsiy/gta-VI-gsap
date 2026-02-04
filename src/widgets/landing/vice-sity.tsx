@@ -14,7 +14,7 @@ export const ViceSity = () => {
         start: "top top",
         end: "+=400% top",
         scrub: 2,
-        pin: true
+        pin: true,
       }
     });
 
