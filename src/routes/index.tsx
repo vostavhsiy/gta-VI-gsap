@@ -5,6 +5,7 @@ import { Jason } from "../widgets/landing/jason";
 import { ViceSity } from "../widgets/landing/vice-sity";
 import { SecondVideo } from "../widgets/landing/second-video";
 import { Lucia } from "../widgets/landing/lucia";
+import { PostCard } from '../widgets/landing/post-card'
 
 export const Route = createFileRoute("/")({
   component: GtaLandingPage
@@ -19,6 +20,7 @@ function GtaLandingPage() {
       <Jason />
       <SecondVideo />
       <Lucia />
+      <PostCard />
     </div>
   );
 }
