@@ -73,6 +73,10 @@ main {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
+*::selection {
+  @apply bg-yellow text-black;
+}
+
 .mask-wrapper {
   mask-image: url("/images/big-hero-text.svg");
   mask-repeat: no-repeat;
