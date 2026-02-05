@@ -11,7 +11,7 @@ export const Outro = () => {
         start: "top top",
         end: "bottom 70%",
         scrub: 2,
-        pin: true,
+        pin: true
       }
     });
 
