@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
 
 export const FinalVideo = () => {
@@ -54,7 +53,7 @@ export const FinalVideo = () => {
           },
           "<"
         );
-        ScrollTrigger.refresh();
+        // ScrollTrigger.refresh();
       };
     }
   });
