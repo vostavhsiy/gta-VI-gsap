@@ -12,7 +12,6 @@ export const Outro = () => {
         end: "bottom 70%",
         scrub: 2,
         pin: true,
-        markers: true
       }
     });
 
