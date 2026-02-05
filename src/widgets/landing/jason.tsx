@@ -11,7 +11,7 @@ export const Jason = () => {
           trigger: ".jason",
           start: "top 60%",
           end: "10% center",
-          scrub: 2,
+          scrub: 2
         }
       })
       .to(".first-vd", {
@@ -59,7 +59,7 @@ export const Jason = () => {
           </div>
         </div>
         <div className="flex flex-col gap-3 mt-96 img-box">
-          <div className="group bg-yellow lg:h-[80vh] w-auto -translate-x-5">
+          <div className="group bg-yellow h-[50vh] lg:h-[80vh] w-auto -translate-x-5">
             <img
               className="size-full object-cover group-hover:scale-98 transition-transform duration-500"
               src="/images/jason-1.webp"

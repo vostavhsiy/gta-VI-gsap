@@ -11,15 +11,14 @@ export const Outro = () => {
         start: "top top",
         end: "bottom 70%",
         scrub: 2,
-        pin: true,
-        markers: true
+        pin: true
       }
     });
 
     tl.to("main", {
       background: "black"
     })
-      .to(".final-video video", { opacity: 0, ease: "power1.inOut" })
+      .to(".final-video-content", { opacity: 0, ease: "power1.inOut" })
       .to(".outro", {
         opacity: 1,
         visibility: "visible",

@@ -14,7 +14,7 @@ export const ViceSity = () => {
         start: "top top",
         end: "+=400% top",
         scrub: 2,
-        pin: true,
+        pin: true
       }
     });
 
@@ -37,7 +37,7 @@ export const ViceSity = () => {
   });
 
   return (
-    <section className="vice-city w-full h-screen flex items-center justify-center">
+    <section className="vice-city overflow-hidden w-full h-screen flex items-center justify-center">
       <div className="size-full vice-city-content scale-125 max-w-[90%] min-[769px]:max-w-5xl flex flex-col justify-center gap-6">
         <h2 className="text-3xl min-[769px]:text-7xl font-black bg-linear-to-r from-pink-400 via-red-400 to-orange-400 bg-clip-text text-transparent">
           Vice City, USA.

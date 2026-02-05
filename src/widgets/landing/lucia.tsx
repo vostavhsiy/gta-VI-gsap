@@ -35,7 +35,7 @@ export const Lucia = () => {
     <section className="lucia relative z-10 2xl:pe-40 py-40 mt-60">
       <div className="flex max-[769px]:flex-col-reverse gap-3">
         <div className="flex flex-col items-end gap-3 max-lg:px-4 mt-96 img-box">
-          <div className="group bg-yellow lg:h-screen w-auto lg:translate-x-5">
+          <div className="group bg-yellow h-[50vh] lg:h-screen w-auto lg:translate-x-5">
             <img
               className="size-full object-cover group-hover:scale-98 transition-transform duration-500"
               src="/images/lucia-1.webp"
@@ -64,7 +64,7 @@ export const Lucia = () => {
               out. Lucia’s learned her lesson — only smart moves from here.
             </p>
           </div>
-          <div className="group mx-4 bg-yellow min-[769px]:h-[90vh] w-auto mt-10 lg:translate-x-5">
+          <div className="group mx-4 bg-yellow h-[50vh] min-[769px]:h-[90vh] w-auto mt-10 lg:translate-x-5">
             <img
               className="size-full object-cover group-hover:scale-98 transition-transform duration-500"
               src="/images/lucia-2.webp"

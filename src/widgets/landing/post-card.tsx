@@ -21,21 +21,17 @@ export const PostCard = () => {
 
     if (videoRef.current) {
       videoRef.current.onloadedmetadata = () => {
-        tl.to(
-          videoRef.current,
-          {
-            currentTime: videoRef.current?.duration || 0,
-            ease: "power1.inOut"
-          }
-          // "<50%"
-        );
+        tl.to(videoRef.current, {
+          currentTime: videoRef.current?.duration || 0,
+          ease: "power1.inOut"
+        });
       };
     }
   });
 
   return (
     <section className="post-card pt-[40vh] -mt-[70vh] lg:pt-[70vh] pb-[30vh]">
-      <div className="group relative post-card max-sm:max-w-4/5 max-w-3/5 mx-auto shadow-lg hover:shadow-3xl hover:rotate-1 hover:scale-105 transition-all duration-500">
+      <div className="aspect-273/182 group relative post-card max-sm:max-w-4/5 max-w-3/5 mx-auto shadow-lg hover:shadow-3xl hover:rotate-1 hover:scale-105 transition-all duration-500">
         <video
           ref={videoRef}
           className="absolute top-0 left-0 size-full object-cover"
@@ -46,7 +42,7 @@ export const PostCard = () => {
         />
         <img
           src="/images/overlay.webp"
-          className="relative w-full aspect-273/182"
+          className="relative size-full object-cover"
           alt="Post Card"
         />{" "}
         <button className="absolute left-1/2 -translate-x-1/2 bottom-[10%] py-2 px-4 rounded-full bg-white text-black group-hover:bg-yellow max-lg:text-sm w-max">

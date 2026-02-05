@@ -6,8 +6,8 @@ import { ViceSity } from "../widgets/landing/vice-sity";
 import { SecondVideo } from "../widgets/landing/second-video";
 import { Lucia } from "../widgets/landing/lucia";
 import { PostCard } from "../widgets/landing/post-card";
-import { FinalVideo } from "../widgets/landing/final-video";
-import { Outro } from "../widgets/landing/outro";
+import { FinalVideo } from '../widgets/landing/final-video'
+import { Outro } from '../widgets/landing/outro'
 
 export const Route = createFileRoute("/")({
   component: GtaLandingPage

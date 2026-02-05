@@ -13,7 +13,7 @@ export const FinalVideo = () => {
       scrollTrigger: {
         trigger: ".final-video",
         start: "top top",
-        end: "80% top",
+        end: "90% top",
         scrub: 2,
         pin: true
       }
@@ -53,21 +53,22 @@ export const FinalVideo = () => {
           },
           "<"
         );
-        // ScrollTrigger.refresh();
       };
     }
   });
 
   return (
-    <section className="final-video w-full h-screen">
-      <video
-        ref={videoRef}
-        className="size-full object-cover"
-        muted
-        playsInline
-        preload="auto"
-        src="/videos/output3.mp4"
-      />
+    <section className="final-video w-full h-screen overflow-hidden">
+      <div className="final-video-content size-full">
+        <video
+          ref={videoRef}
+          className="size-full object-cover"
+          muted
+          playsInline
+          preload="auto"
+          src="/videos/output3.mp4"
+        />
+      </div>
     </section>
   );
 };
