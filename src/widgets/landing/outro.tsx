@@ -1,6 +1,5 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
 
 export const Outro = () => {
   useGSAP(() => {
@@ -12,7 +11,8 @@ export const Outro = () => {
         start: "top top",
         end: "bottom 70%",
         scrub: 2,
-        pin: true
+        pin: true,
+        markers: true
       }
     });
 
@@ -33,8 +33,6 @@ export const Outro = () => {
         },
         "<"
       );
-
-    ScrollTrigger.refresh();
   });
 
   return (
