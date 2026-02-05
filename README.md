@@ -1,6 +1,6 @@
 # GTA VI Website Clone - Best GSAP practices
 
-📚 This repository represents [GSAP](https://gsap.com) common practices with summary as GTA VI Landing Page.
+📚 This repository represents [GSAP](https://gsap.com) common practices with result as GTA VI Landing Page.
 
 It shows:
 
