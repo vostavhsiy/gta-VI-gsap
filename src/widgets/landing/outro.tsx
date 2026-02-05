@@ -1,10 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useState } from "react";
 
 export const Outro = () => {
-  const [oldProgress, setOldProgress] = useState(0);
-
   useGSAP(() => {
     gsap.set(".outro", { marginTop: "-130vh", opacity: 0 });
 

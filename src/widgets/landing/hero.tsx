@@ -43,7 +43,16 @@ export const Hero = () => {
           ease: "sine.inOut(1.7)"
         },
         "<"
-      );
+      )
+      .to(".scroll", {
+        scale: 1.2,
+        y: -5,
+        duration: 1,
+        ease: "sine.inOut(1.7)",
+        repeat: -1,
+        opacity: 1,
+        yoyo: true
+      });
 
     tl.set(".scale-out", { scale: 1.25 })
       .to(".scale-out", { scale: 1, ease: "power1.inOut" })
@@ -132,6 +141,11 @@ export const Hero = () => {
             className="scale-out scale-150 fade-out absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[15%] w-50 md:w-[13dvw]"
             alt="watch-trailer"
           />
+          <div className="scale-out scale-150 fade-out absolute bottom-0 text-yellow left-1/2 -translate-x-1/2 text-2xl">
+            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 scroll rotate-90 opacity-50">
+              ❯
+            </span>
+          </div>
         </div>
         <div className="entrance-message invisible absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center gap-5">
           <img
