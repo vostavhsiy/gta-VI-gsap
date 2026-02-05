@@ -26,8 +26,8 @@ export const PostCard = () => {
           {
             currentTime: videoRef.current?.duration || 0,
             ease: "power1.inOut"
-          },
-          "<50%"
+          }
+          // "<50%"
         );
       };
     }
@@ -35,7 +35,7 @@ export const PostCard = () => {
 
   return (
     <section className="post-card pt-[40vh] -mt-[70vh] lg:pt-[70vh] pb-[30vh]">
-      <div className="group relative post-card max-sm:max-w-4/5 max-w-3/5 mx-auto shadow-lg hover:shadow-xl hover:rotate-1 hover:scale-105 transition-all duration-500">
+      <div className="group relative post-card max-sm:max-w-4/5 max-w-3/5 mx-auto shadow-lg hover:shadow-3xl hover:rotate-1 hover:scale-105 transition-all duration-500">
         <video
           ref={videoRef}
           className="absolute top-0 left-0 size-full object-cover"

@@ -13,7 +13,7 @@ export const Hero = () => {
         start: "top top",
         end: "+=200%",
         scrub: 2,
-        pin: true,
+        pin: true
       }
     });
 
@@ -85,7 +85,7 @@ export const Hero = () => {
         "<"
       )
       .to(
-        ".entrance-info",
+        ".hero-section .entrance-info",
         {
           scale: 1,
           ease: "power1.inOut"
@@ -133,7 +133,7 @@ export const Hero = () => {
             alt="watch-trailer"
           />
         </div>
-        <div className="entrance-message invisible absolute w-full h-full pt-[0%] top-0 left-0 flex flex-col items-center justify-center gap-5">
+        <div className="entrance-message invisible absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center gap-5">
           <img
             src="/images/logo.webp"
             className="max-[769px]:w-[50dvw] w-[13dvw] z-5 absolute top-0 left-1/2 -translate-x-1/2 translate-y-[90%] sm:translate-y-[45%] lg:translate-y-[90%]"

@@ -13,8 +13,8 @@ export const FinalVideo = () => {
       scrollTrigger: {
         trigger: ".final-video",
         start: "top top",
-        end: "+=200%",
-        scrub: true,
+        end: "80% top",
+        scrub: 2,
         pin: true
       }
     });
@@ -24,7 +24,7 @@ export const FinalVideo = () => {
         trigger: ".final-video",
         start: "top 80%",
         end: "90% top",
-        scrub: true,
+        scrub: 2
       }
     });
 
