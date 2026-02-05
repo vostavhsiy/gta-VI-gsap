@@ -1,7 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useState } from "react";
 
 export const Outro = () => {
+  const [oldProgress, setOldProgress] = useState(0);
+
   useGSAP(() => {
     gsap.set(".outro", { marginTop: "-130vh", opacity: 0 });
 
@@ -12,13 +15,34 @@ export const Outro = () => {
         end: "bottom 70%",
         scrub: 2,
         pin: true
+      },
+      onUpdate() {
+        const progress = this?.progress?.() || 0;
+        if (progress <= 0.1) {
+          gsap.set("main", {
+            "--r1": "rgb(110, 75, 145)",
+            "--r2": "rgb(110, 75, 145)",
+            "--r3": "rgb(110, 75, 145)",
+            "--r4": "rgb(110, 75, 145)",
+            "--r5": "rgb(110, 75, 145)",
+            "--r6": "rgb(110, 75, 145)",
+            "--r7": "rgb(110, 75, 145)"
+          });
+        } else {
+          gsap.set("main", {
+            "--r1": "rgb(28, 24, 41)",
+            "--r2": "rgb(27, 24, 40)",
+            "--r3": "rgb(25, 23, 36)",
+            "--r4": "rgb(22, 21, 32)",
+            "--r5": "rgb(20, 19, 28)",
+            "--r6": "rgb(18, 18, 24)",
+            "--r7": "rgb(17, 17, 23)"
+          });
+        }
       }
     });
 
-    tl.to("main", {
-      background: "black"
-    })
-      .to(".final-video-content", { opacity: 0, ease: "power1.inOut" })
+    tl.to(".final-video-content", { opacity: 0, ease: "power1.inOut" })
       .to(".outro", {
         opacity: 1,
         visibility: "visible",

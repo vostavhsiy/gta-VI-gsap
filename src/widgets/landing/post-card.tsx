@@ -11,11 +11,18 @@ export const PostCard = () => {
         trigger: ".post-card",
         start: "top center",
         end: "60% center",
-        scrub: true
+        scrub: 2
       }
     });
+
     tl.to("main", {
-      background: "linear-gradient(135deg, #1e2a52, #6e4b91)",
+      "--r1": "rgb(110, 75, 145)",
+      "--r2": "rgb(110, 75, 145)",
+      "--r3": "rgb(110, 75, 145)",
+      "--r4": "rgb(110, 75, 145)",
+      "--r5": "rgb(110, 75, 145)",
+      "--r6": "rgb(110, 75, 145)",
+      "--r7": "rgb(110, 75, 145)",
       ease: "power1.inOut"
     });
 
